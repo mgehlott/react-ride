@@ -23,6 +23,10 @@ module.exports.getUserByEmail = async (email) => {
 };
 
 module.exports.getUserById = async (id) => {
-  const tempId = mongoose.Types.ObjectId(id);
-  return await User.findById();
+  // const tempId = mongoose.Types.ObjectId(id);
+  return await User.findById(id);
+};
+
+module.exports.getUserByEmailWithPassword = async (email) => {
+  return await User.findOne({ email: email }).select("+password");
 };
