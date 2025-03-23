@@ -9,10 +9,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 connectToDb();
-app.use("/", () => {
-  console.log("OK");
-});
+// app.use("/", () => {
+//   console.log("OK");
+// });
 
-app.user('/users', userRoutes);
+app.use('/users', userRoutes);
 
 module.exports = app;
